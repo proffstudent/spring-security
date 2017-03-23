@@ -27,11 +27,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
     }
-
-@Bean
-public UserDetailsService getUserDetailsService(){
-    return new UserDetailsServiceImpl();
-}
+    @Bean
+    public UserDetailsService getUserDetailsService(){
+        return new UserDetailsServiceImpl();
+    }
 
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
@@ -41,45 +40,6 @@ public UserDetailsService getUserDetailsService(){
         resolver.setViewClass(JstlView.class);
 
         return resolver;
-    }
-
-    //@Value("${jdbc.url}")
-    private String jdbcURL = "jdbc:postgresql://localhost:5432/publications";
-
-    //@Value("${jdbc.username}")
-    private String jdbcUsername = "postgres";
-
-   // @Value("${jdbc.password}")
-    private String jdbcPassword = "hH1508985";
-
-   // @Value("${jdbc.driver}")
-    private String jdbcDriver = "org.postgresql.Driver";
-
-    /**
-     * configure jdbc datasource
-     *
-     * @return DataSource
-     */
-    @Bean
-    public DataSource getDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource(jdbcURL, jdbcUsername, jdbcPassword);
-        dataSource.setDriverClassName(jdbcDriver);
-        return dataSource;
-    }
-
-    /**
-     * configure jdbc template
-     *
-     * @return JdbcTemplate
-     */
-    @Bean
-    public JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(getDataSource());
-    }
-
-    @Bean
-    public PlatformTransactionManager txManager() {
-        return new DataSourceTransactionManager(getDataSource());
     }
 
 }

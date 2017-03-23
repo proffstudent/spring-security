@@ -45,7 +45,6 @@
             <td><c:out value="${user.lastName}"></c:out></td>
             <td><c:out value="${user.email}"></c:out></td>
             <td><c:out value="${user.workplace}"></c:out></td>
-            <td><c:out value="${user.accessLevel}"></c:out></td>
             <td><a href="/adduser?id=${user.id}">edit</a>
         </tr>
     </table>

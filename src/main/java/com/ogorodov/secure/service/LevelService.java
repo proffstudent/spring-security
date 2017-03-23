@@ -1,13 +1,8 @@
 package com.ogorodov.secure.service;
 
-import com.ogorodov.common.exceptions.LevelDaoException;
-import com.ogorodov.common.exceptions.UserDaoException;
-import com.ogorodov.secure.entity.Level;
-import com.ogorodov.secure.entity.User;
-
-import java.util.List;
+import com.ogorodov.entity.Level;
+import com.ogorodov.entity.User;
 
 public interface LevelService {
-    public String getUserAccessById(int id);
-
+    public String getUserAccessById(Integer id);
 }

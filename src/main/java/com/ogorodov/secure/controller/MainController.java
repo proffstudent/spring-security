@@ -1,21 +1,15 @@
 package com.ogorodov.secure.controller;
 
-import com.ogorodov.common.exceptions.UserDaoException;
-import com.ogorodov.secure.entity.User;
+import com.ogorodov.entity.User;
 import com.ogorodov.secure.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.util.List;
 
 @Controller
 public class MainController {
@@ -40,9 +34,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public ModelAndView showUsers(Principal principal,ModelAndView model) {
-        logger.trace("UsershowUsers nety " + principal);
-        logger.trace("neteshowUsersstUser " + principal.getName());
+    public Model showUsers(Principal principal,Model model) {
         return model;
 
     }
